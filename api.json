@@ -1,0 +1,19 @@
+{
+  "openapi": "3.0",
+  "info": {
+    "title": "ember-bolt",
+    "version": "0.0.3"
+  },
+  "paths": {
+    "/": {
+      "summary": "Index",
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Fetch the index"
+          }
+        }
+      }
+    }
+  }
+}
