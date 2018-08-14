@@ -8,7 +8,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Handler: org.movealong.bolt.Bolt
-      CodeUri: ./target/ember-bolt-1.0-SNAPSHOT.jar
+      CodeUri: ./target/ember-bolt-1.0-SNAPSHOT-bundle.jar
       Runtime: java8
       Role: arn:aws:iam::358324145076:role/vpc-lambda
       VpcConfig:
