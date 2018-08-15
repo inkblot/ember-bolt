@@ -5,13 +5,12 @@
 
     <parent>
         <groupId>org.movealong</groupId>
-        <artifactId>root-pom</artifactId>
+        <artifactId>lib-pom</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../root-pom</relativePath>
+        <relativePath>../root-pom/lib-pom</relativePath>
     </parent>
 
     <artifactId>ember-bolt</artifactId>
-    <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>ember-bolt</name>
 
@@ -50,10 +49,6 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-            </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>flatten-maven-plugin</artifactId>
