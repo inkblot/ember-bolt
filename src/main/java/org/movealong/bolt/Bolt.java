@@ -4,13 +4,14 @@ import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
+import lombok.extern.slf4j.Slf4j;
 import redis.clients.jedis.Jedis;
 
 import java.util.Map;
 
 import static java.util.Collections.singletonMap;
-import static org.apache.commons.lang3.exception.ExceptionUtils.getStackTrace;
 
+@Slf4j
 public class Bolt implements RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
 
     private final String appName;
@@ -30,10 +31,12 @@ public class Bolt implements RequestHandler<APIGatewayProxyRequestEvent, APIGate
             response.setStatusCode(200);
             response.setBody(getIndex());
             response.setHeaders(singletonMap("Content-Type", "text/html"));
+            log.info("Served current index");
             return response;
         } catch (Throwable e) {
+            log.error("Failed to serve request", e);
             response.setStatusCode(500);
-            response.setBody(String.format("%s:\n%s", e.getMessage(), getStackTrace(e)));
+            response.setBody(e.getMessage());
             response.setHeaders(singletonMap("Content-Type", "text/plain"));
         }
         return response;
