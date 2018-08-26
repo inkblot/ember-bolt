@@ -5,37 +5,19 @@
 
     <parent>
         <groupId>org.movealong</groupId>
-        <artifactId>lib-pom</artifactId>
+        <artifactId>movealong-oss</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../root-pom/lib-pom</relativePath>
+        <relativePath>../movealong-oss</relativePath>
     </parent>
 
     <artifactId>ember-bolt</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>ember-bolt</name>
     <description>An AWS Lambda function for ember lightning deployments</description>
-    <!--<url></url>-->
-
-    <developers>
-        <developer>
-            <name>Nate Riffe</name>
-            <email>inkblot@movealong.org</email>
-        </developer>
-    </developers>
-
-    <licenses>
-        <license>
-            <name>Apache License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-            <distribution>repo</distribution>
-        </license>
-    </licenses>
-
-    <!--
-        <scm>
-            <url></url>
-        </scm>
-    -->
+    <url>https://github.com/inkblot/ember-bolt</url>
+    <scm>
+        <url>https://github.com/inkblot/ember-bolt</url>
+    </scm>
 
     <dependencies>
         <dependency>
@@ -81,13 +63,4 @@
             </build>
         </profile>
     </profiles>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>flatten-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 </project>
