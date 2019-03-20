@@ -43,11 +43,13 @@ public class Bolt implements RequestHandler<APIGatewayProxyRequestEvent, APIGate
     }
 
     private String getIndex() {
+        log.info("Getting index");
         String index;
         try (Jedis jedis = new Jedis(redisServer)) {
             jedis.connect();
             index = jedis.get(appName + ":index:current-content");
         }
+        log.info("Got index");
         return index;
     }
 }
