@@ -8,6 +8,7 @@ import com.jnape.palatable.lambda.adt.Either;
 import com.jnape.palatable.lambda.functions.Fn1;
 import com.jnape.palatable.lambda.io.IO;
 import lombok.extern.slf4j.Slf4j;
+import redis.clients.jedis.HostAndPort;
 import redis.clients.jedis.Jedis;
 
 import java.util.Map;
@@ -28,9 +29,11 @@ public class Bolt implements RequestHandler<APIGatewayProxyRequestEvent, APIGate
         Map<String, String> environment = System.getenv();
         String appName = environment.get("APP_NAME");
         String redisServer = environment.get("REDIS_SERVER");
+        int redisPort = Integer.parseInt(environment.get("REDIS_PORT"));
+        HostAndPort redisEndpoint = new HostAndPort(redisServer, redisPort);
 
         this.handle = io(() -> log.info("Getting index"))
-                .discardL(fetchCurrentIndex(appName, redisServer))
+                .discardL(fetchCurrentIndex(appName, redisEndpoint))
                 .flatMap(e -> e.match(errorResonse(), successResponse()));
     }
 
@@ -39,8 +42,8 @@ public class Bolt implements RequestHandler<APIGatewayProxyRequestEvent, APIGate
         return handle.unsafePerformIO();
     }
 
-    private static IO<Either<Throwable, String>> fetchCurrentIndex(String appName, String redisServer) {
-        return autoBracket(io(() -> new Jedis(redisServer)).flatMap(alter(j -> io(j::connect))),
+    private static IO<Either<Throwable, String>> fetchCurrentIndex(String appName, HostAndPort redisEndpoint) {
+        return autoBracket(io(() -> new Jedis(redisEndpoint)).flatMap(alter(j -> io(j::connect))),
                            jedis -> io(() -> jedis.get(appName + ":index:current-content"))).safe();
     }
 
