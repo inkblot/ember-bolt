@@ -6,11 +6,11 @@
     <parent>
         <groupId>org.movealong</groupId>
         <artifactId>movealong-oss</artifactId>
-        <version>0.0.16</version>
+        <version>0.0.20</version>
     </parent>
 
     <artifactId>ember-bolt</artifactId>
-    <version>0.0.13</version>
+    <version>0.0.14</version>
     <name>ember-bolt</name>
     <description>An AWS Lambda function for ember lightning deployments</description>
     <url>https://github.com/inkblot/ember-bolt</url>
@@ -22,30 +22,18 @@
         <dependency>
             <groupId>com.amazonaws</groupId>
             <artifactId>aws-lambda-java-core</artifactId>
-            <version>1.2.0</version>
         </dependency>
         <dependency>
             <groupId>com.amazonaws</groupId>
             <artifactId>aws-lambda-java-events</artifactId>
-            <version>2.0.2</version>
         </dependency>
         <dependency>
             <groupId>io.symphonia</groupId>
             <artifactId>lambda-logging</artifactId>
-            <version>1.0.1</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.amazonaws</groupId>
-                    <artifactId>aws-lambda-java-core</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
-            <version>2.9.0</version>
-            <type>jar</type>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.jnape.palatable</groupId>
