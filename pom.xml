@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.movealong</groupId>
         <artifactId>movealong-oss</artifactId>
-        <version>0.0.23</version>
+        <version>0.0.24</version>
     </parent>
 
     <artifactId>ember-bolt</artifactId>
