@@ -6,11 +6,11 @@
     <parent>
         <groupId>org.movealong</groupId>
         <artifactId>movealong-oss</artifactId>
-        <version>0.0.23</version>
+        <version>0.0.24</version>
     </parent>
 
     <artifactId>ember-bolt</artifactId>
-    <version>0.0.17</version>
+    <version>0.0.18</version>
     <name>ember-bolt</name>
     <description>An AWS Lambda function for ember lightning deployments</description>
     <url>https://github.com/inkblot/ember-bolt</url>
