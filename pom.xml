@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>ember-bolt</artifactId>
-    <version>0.0.21-SNAPSHOT</version>
+    <version>0.0.21</version>
     <name>ember-bolt</name>
     <description>An AWS Lambda function for ember lightning deployments</description>
     <url>https://github.com/inkblot/ember-bolt</url>
